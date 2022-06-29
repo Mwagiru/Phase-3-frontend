@@ -1,6 +1,6 @@
 import './App.css';
-import React,{ useState } from 'react';
-
+import React,{ useState, useEffect } from 'react';
+import axios from "axios"
 const App = () => {
   const [quotes, setQuotes] = useState("");
   const [author, setAuthor] = useState("");
@@ -34,7 +34,7 @@ const App = () => {
               <h2>{quotes}</h2>
             </div>
             <div className="quotebutton">
-              <button onClick={quoteAPI}>GIMME QOUTE</button>
+              <button onClick={API}>GIMME QOUTE</button>
             </div>
           </div>
         </div>
