@@ -34,7 +34,7 @@ const App = () => {
               <h2>{quotes}</h2>
             </div>
             <div className="quotebutton">
-              <button onClick={API}>GIMME QOUTE</button>
+              <button onClick={API}>Generate Quotes</button>
             </div>
           </div>
         </div>
