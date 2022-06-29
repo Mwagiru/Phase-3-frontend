@@ -2,7 +2,7 @@ import './App.css';
 import React,{ useState, useEffect } from 'react';
 import axios from "axios"
 import Navbar from './Components/Navbar';
-
+import Home from './Components/Home';
 const App = () => {
   const [quotes, setQuotes] = useState("");
   const [author, setAuthor] = useState("");
@@ -42,6 +42,7 @@ const App = () => {
           </div>
         </div>
       </div>
+      <Home/>
     </>
   );
 }
