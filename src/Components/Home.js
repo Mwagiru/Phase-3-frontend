@@ -29,10 +29,32 @@ const Home = () => {
       }
 
   return (
-    <>
-
-    </>
-  )
+      <>
+     <div className="home">
+      <h1>Add Your Quote</h1>
+      <form onSubmit={(e) => submit(e)}>
+        <label>Author:</label>
+        <input
+          id="input"
+          type="text"
+          value={author_id}
+          onChange={(e) => setAuthor_id(e.target.value)}
+        />
+        <label>Quote:</label>
+        <textarea
+          id="txt-area"
+          rows="5"
+          cols="80"
+          required
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        />
+        <button type="submit">Submit</button>
+        <button onClick={updateContent}>Update</button>
+      </form>
+      </div>
+      </>
+  );
 }
 
-export default Home
+export default Home;
