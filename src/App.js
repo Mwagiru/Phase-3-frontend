@@ -1,6 +1,8 @@
 import './App.css';
 import React,{ useState, useEffect } from 'react';
 import axios from "axios"
+import Navbar from './Components/Navbar';
+
 const App = () => {
   const [quotes, setQuotes] = useState("");
   const [author, setAuthor] = useState("");
@@ -27,6 +29,7 @@ const App = () => {
     }, []);
   return (
     <>
+    <Navbar/>
       <div className="App">
         <div className="quotebox">
           <div className="container">
