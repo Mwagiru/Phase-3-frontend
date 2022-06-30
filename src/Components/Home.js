@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Nav1 from './Nav1';
 
 const Home = ({id, onUpdateQuotes,body}) => {
       const [author_id, setAuthor_id] = useState("");
@@ -47,7 +48,7 @@ function handleDelete(id) {
   return (
     <>
       <div className="home">
-        <h1>Add Your Quote</h1>
+        <Nav1 />
         <form onSubmit={(e) => submit(e)}>
           <label>Quote:</label>
           <textarea
@@ -60,14 +61,14 @@ function handleDelete(id) {
           />
           <button type="submit">Submit</button>
         </form>
-      </div>
-      <div className="show">
-        {quotes.map((quote) => (
-          <p key={quote.id}>
-            <button onClick={() => handleDelete(quote.id)}>Delete</button>
-            {quote.content}
-          </p>
-        ))}
+        <div className="show">
+          {quotes.map((quote) => (
+            <p key={quote.id}>
+              <button onClick={() => handleDelete(quote.id)}>Delete</button>
+              {quote.content}
+            </p>
+          ))}
+        </div>
       </div>
     </>
   );
