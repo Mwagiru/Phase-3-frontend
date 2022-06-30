@@ -9,7 +9,6 @@ const App = () => {
   const [quotes, setQuotes] = useState("");
   const [author, setAuthor] = useState("");
  
-  let navigate = useNavigate();
    const API = async () => {
     let quotesarr = [];
     try{
@@ -43,6 +42,7 @@ const App = () => {
    
   return (
     <>
+    
     <Navbar/>
       <div className="App">
         <div className="quotebox">

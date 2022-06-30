@@ -6,7 +6,6 @@ import {
   signOut,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { Navigate, useNavigate } from "react-router-dom";
 
 function Authenticate() {
       const [email, setEmail] = useState();
@@ -16,7 +15,6 @@ function Authenticate() {
         setUser(currentUser);
       });
 
-   	let navigate = useNavigate();
 
      const login = async (e) => {
        e.preventDefault();
