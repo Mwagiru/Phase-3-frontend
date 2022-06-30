@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const Home = () => {
+const Home = ({id, onUpdateQuotes,body}) => {
       const [author_id, setAuthor_id] = useState("");
       const [quotes, setQuotes] = useState([]);
       const [content, setContent] = useState("");
@@ -11,8 +11,7 @@ const Home = () => {
       });
       function submit(e) {
         e.preventDefault();
-        axios
-          .post("http://localhost:9292/quotes", {
+        axios.post("http://localhost:9292/quotes", {
             author: author_id,
             quote: content,
           })
@@ -27,19 +26,29 @@ const Home = () => {
         setData(newData);
         console.log(newData);
       }
+            useEffect(() => {
+            fetch("http://localhost:9292/allquotes")
+                .then((res) => res.json())
+                .then((data) => setQuotes(data));
+            }, []);
+        function handleUpdate(content) {
+          setContent(content);
+        }
+
+function handleDelete(id) {
+  fetch(`http://localhost:9292/quotes/${id}`, {
+    method: "DELETE",
+  });
+
+  const quotearr = quotes.filter((quote) => quote.id !== id);
+  setQuotes(quotearr);
+}
 
   return (
     <>
       <div className="home">
         <h1>Add Your Quote</h1>
         <form onSubmit={(e) => submit(e)}>
-          <label>Author:</label>
-          <input
-            id="input"
-            type="text"
-            value={author_id}
-            onChange={(e) => setAuthor_id(e.target.value)}
-          />
           <label>Quote:</label>
           <textarea
             id="txt-area"
@@ -50,11 +59,15 @@ const Home = () => {
             onChange={(e) => setContent(e.target.value)}
           />
           <button type="submit">Submit</button>
-          <button>Update</button>
         </form>
       </div>
       <div className="show">
-       <p>Hello!!</p>
+        {quotes.map((quote) => (
+          <p key={quote.id}>
+            <button onClick={() => handleDelete(quote.id)}>Delete</button>
+            {quote.content}
+          </p>
+        ))}
       </div>
     </>
   );

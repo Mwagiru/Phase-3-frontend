@@ -10,7 +10,7 @@ const App = () => {
    const API = async () => {
     let quotesarr = [];
     try{
-      const data = await axios.get();
+      const data = await axios.get("http://localhost:9292/quotes");
       quotesarr = data.data;
     
     
@@ -27,6 +27,17 @@ const App = () => {
     useEffect(() => {
       API();
     }, []);
+    function handleUpdateQuote(updatedQuote) {
+      const updatedQuotes = quotes.map((quote) => {
+        if (quote.id === updatedQuotes.id) {
+          return updatedQuotes;
+        } else {
+          return quote;
+        }
+      });
+      setQuotes(updatedQuotes);
+    }
+   
   return (
     <>
     <Navbar/>
@@ -42,7 +53,7 @@ const App = () => {
           </div>
         </div>
       </div>
-      <Home/>
+      <Home onUpdateQuotes={handleUpdateQuote}/>
     </>
   );
 }
