@@ -3,10 +3,13 @@ import React,{ useState, useEffect } from 'react';
 import axios from "axios"
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
+import { useNavigate } from 'react-router-dom';
+
 const App = () => {
   const [quotes, setQuotes] = useState("");
   const [author, setAuthor] = useState("");
-  
+ 
+  let navigate = useNavigate();
    const API = async () => {
     let quotesarr = [];
     try{
@@ -29,8 +32,8 @@ const App = () => {
     }, []);
     function handleUpdateQuote(updatedQuote) {
       const updatedQuotes = quotes.map((quote) => {
-        if (quote.id === updatedQuotes.id) {
-          return updatedQuotes;
+        if (quote.id === updatedQuote.id) {
+          return updatedQuote;
         } else {
           return quote;
         }

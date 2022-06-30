@@ -64,7 +64,7 @@ function handleDelete(id) {
         <div className="show">
           {quotes.map((quote) => (
             <p key={quote.id}>
-              <button onClick={() => handleDelete(quote.id)}>Delete</button>
+              <button onClick={() => handleDelete(quote.id)}>🗑️</button>
               {quote.content}
             </p>
           ))}
