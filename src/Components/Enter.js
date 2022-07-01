@@ -7,7 +7,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 
-function Authenticate() {
+function Enter() {
       const [email, setEmail] = useState();
       const [password, setPassword] = useState("");
       const [user, setUser] = useState({});
@@ -83,4 +83,4 @@ function Authenticate() {
   );
 }
 
-export default Authenticate
+export default Enter
