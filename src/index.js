@@ -14,7 +14,6 @@ root.render(
         <Route exact path="/home" component={App} />
       </div>
     </Router>
-    <App/>
   </React.StrictMode>
 );
 
