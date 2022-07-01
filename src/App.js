@@ -3,8 +3,6 @@ import React,{ useState, useEffect } from 'react';
 import axios from "axios"
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
-import { useNavigate } from 'react-router-dom';
-
 const App = () => {
   const [quotes, setQuotes] = useState("");
   const [author, setAuthor] = useState("");
