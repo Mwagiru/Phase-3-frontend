@@ -10,7 +10,7 @@ const App = () => {
    const API = async () => {
     let quotesarr = [];
     try{
-      const data = await axios.get("http://localhost:9292/quotes");
+      const data = await axios.get("https://quotsy-quotes.herokuapp.com/quotes");
       quotesarr = data.data;
     
     

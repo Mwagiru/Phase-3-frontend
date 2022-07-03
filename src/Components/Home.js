@@ -12,7 +12,8 @@ const Home = ({id, onUpdateQuotes,body}) => {
       });
       function submit(e) {
         e.preventDefault();
-        axios.post("http://localhost:9292/quotes", {
+        axios
+          .post("https://quotsy-quotes.herokuapp.com/quotes", {
             author: author_id,
             quote: content,
           })
@@ -28,16 +29,16 @@ const Home = ({id, onUpdateQuotes,body}) => {
         console.log(newData);
       }
             useEffect(() => {
-            fetch("http://localhost:9292/allquotes")
-                .then((res) => res.json())
-                .then((data) => setQuotes(data));
+            fetch("https://quotsy-quotes.herokuapp.com/allquotes")
+              .then((res) => res.json())
+              .then((data) => setQuotes(data));
             }, []);
         function handleUpdate(content) {
           setContent(content);
         }
 
 function handleDelete(id) {
-  fetch(`http://localhost:9292/quotes/${id}`, {
+  fetch(`https://quotsy-quotes.herokuapp.com/quotes${id}`, {
     method: "DELETE",
   });
 
